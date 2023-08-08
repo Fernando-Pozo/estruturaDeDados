@@ -3,7 +3,7 @@
 <p align = "center">
 <a align href = "#Sobre">Sobre</a> │
 <a align href = "#Tecnologias">Tecnologias</a> │
-<a align href = "#Autor">Autores</a>
+<a align href = "#Autor">Autor</a>
 </p>
 
 ---
