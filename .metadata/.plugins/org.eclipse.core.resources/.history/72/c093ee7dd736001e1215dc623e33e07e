@@ -6,7 +6,7 @@ public class vetor {
 	private int tamanho;
 	
 	public vetor(int capacidade){
-		this.elementos = new Object[capacidade];
+		this.elementos = new String[capacidade];
 		this.tamanho = 0;
 	}
 	
@@ -52,7 +52,7 @@ public class vetor {
 	
 	public void aumentacapacidade() {
 		if(this.tamanho == this.elementos.length) {
-			Object[] novoselementos = new String[this.elementos.length * 2];
+			String[] novoselementos = new String[this.elementos.length * 2];
 			for(int i=0; i < this.elementos.length; i++) {
 				novoselementos[i] = this.elementos[i];
 			}
@@ -60,7 +60,7 @@ public class vetor {
 		}
 	}
 	
-	public Object busca(int posicao) {
+	public String busca(int posicao) {
 		validacao(posicao);
 		return this.elementos[posicao];
 	}

@@ -14,9 +14,7 @@ public class Teste {
 			contato c2 = new contato("Contato 2", "1234-4567", "contato2@emial.com");
 			contato c3 = new contato("Contato 3", "1234-4567", "contato3@emial.com");
 		
-			vetor.adiciona(c1);
-			vetor.adiciona(c2);
-			vetor.adiciona(c3);
+			vetor.remove(3);
 			
 		System.out.println(vetor);
 	

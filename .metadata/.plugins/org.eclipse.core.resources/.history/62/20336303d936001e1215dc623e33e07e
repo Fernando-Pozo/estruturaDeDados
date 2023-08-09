@@ -6,7 +6,7 @@ public class vetor {
 	private int tamanho;
 	
 	public vetor(int capacidade){
-		this.elementos = new Object[capacidade];
+		this.elementos = new String[capacidade];
 		this.tamanho = 0;
 	}
 	
