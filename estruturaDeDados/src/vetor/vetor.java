@@ -1,12 +1,21 @@
 package vetor;
 
-public class vetor {
+import java.lang.reflect.Array;
+
+import contato.contato;
+
+public class vetor<T> {
 	
-	private Object[] elementos;
+	private T[] elementos;
 	private int tamanho;
 	
 	public vetor(int capacidade){
-		this.elementos = new Object[capacidade];
+		this.elementos = (T[]) new Object[capacidade];
+		this.tamanho = 0;
+	}
+	
+	public vetor(int capacidade, Class<T> tipoclasse){
+		this.elementos = (T[]) Array.newInstance(tipoclasse, capacidade);
 		this.tamanho = 0;
 	}
 	
@@ -19,10 +28,10 @@ public class vetor {
 		}
 	}*/
 	
-	public void adiciona(Object elemento) throws Exception {
+	public void adiciona(contato c1) throws Exception {
 		aumentacapacidade();
 		if(this.tamanho < this.elementos.length) {
-			this.elementos[this.tamanho] = elemento;
+			this.elementos[this.tamanho] = (T) c1;
 			this.tamanho++;
 		}else {
 			throw new Exception("Vetor já esta cheio");
@@ -31,7 +40,7 @@ public class vetor {
 	}
 	
 	
-	public Boolean adiciona(Object elemento, int posicao) throws Exception {
+	public Boolean adiciona(T elemento, int posicao) throws Exception {
 		validacao(posicao);
 		aumentacapacidade();
 		for(int i = this.tamanho; i >= posicao; i--) {
@@ -52,7 +61,7 @@ public class vetor {
 	
 	public void aumentacapacidade() {
 		if(this.tamanho == this.elementos.length) {
-			Object[] novoselementos = new String[this.elementos.length * 2];
+			T[] novoselementos = (T[]) new String[this.elementos.length * 2];
 			for(int i=0; i < this.elementos.length; i++) {
 				novoselementos[i] = this.elementos[i];
 			}
@@ -66,7 +75,7 @@ public class vetor {
 	}
 	
 	//busca sequencial dentro de um vetor
-	public int busca(Object elemento) {
+	public int busca(T elemento) {
 		for(int i = 0; i < this.tamanho; i++) {
 			if(this.elementos[i].equals(elemento)) {
 				return i;

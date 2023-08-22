@@ -8,7 +8,7 @@ public class Teste {
 	
 	public static void main(String[] args) throws Exception {
 	
-		vetor vetor = new vetor(3);
+		vetor<contato> vetor = new vetor<contato>(3); 
 		
 			contato c1 = new contato("Contato 1", "1234-4567", "contato1@emial.com");
 			contato c2 = new contato("Contato 2", "1234-4567", "contato2@emial.com");
