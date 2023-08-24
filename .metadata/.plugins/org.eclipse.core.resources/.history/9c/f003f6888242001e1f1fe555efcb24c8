@@ -1,0 +1,23 @@
+package vetor.teste;
+
+import java.util.ArrayList;
+
+import contato.contato;
+import vetor.vetor;
+
+public class Teste {
+
+	
+	public static void main(String[] args) throws Exception {
+	
+	
+		vetor<String> vetor = new vetor<String>(5);
+
+		
+		vetor.adiciona("A", 0);
+		vetor.adiciona("B", 1);
+		vetor.adiciona("A", 2);
+		
+		System.out.println(vetor.ultimaposicao("A"));
+	}
+}

@@ -8,6 +8,7 @@ public class vetor<T> {
 	
 	private T[] elementos;
 	private int tamanho;
+	private Object[] elemento;
 	
 	public vetor(int capacidade){
 		this.elementos = (T[]) new Object[capacidade];
@@ -17,6 +18,16 @@ public class vetor<T> {
 	public vetor(int capacidade, Class<T> tipoclasse){
 		this.elementos = (T[]) Array.newInstance(tipoclasse, capacidade);
 		this.tamanho = 0;
+	}
+	
+	public boolean adiciona(T elemento) {
+		this.aumentacapacidade();
+		if (this.tamanho < this.elementos.length){
+			this.elementos[this.tamanho] = elemento;
+			this.tamanho++;
+			return true;
+		} 
+		return false;
 	}
 	
 	/*public void adiciona(String elemento) {
@@ -59,6 +70,13 @@ public class vetor<T> {
 		this.tamanho--;
 	}
 	
+	public void remove(T elemento) {
+		int index = busca(elemento);
+		validacao(index);
+		remove(index);
+	}
+	
+	
 	public void aumentacapacidade() {
 		if(this.tamanho == this.elementos.length) {
 			T[] novoselementos = (T[]) new String[this.elementos.length * 2];
@@ -73,6 +91,11 @@ public class vetor<T> {
 		validacao(posicao);
 		return this.elementos[posicao];
 	}
+	
+	public Boolean contem(T elemento) {
+		return busca(elemento) > -1;
+	}
+	
 	
 	//busca sequencial dentro de um vetor
 	public int busca(T elemento) {
@@ -91,8 +114,18 @@ public class vetor<T> {
 	
 	public void validacao(int posicao) {
 		if(!(posicao >= 0 && posicao <= tamanho)) {
-			throw new IllegalArgumentException("Numero Invalido");
+			throw new IllegalArgumentException("Posição Invalido");
 		}
+	}
+	
+	public int ultimaposicao(T elemento) {
+		validacao(busca(elemento));
+		for(int i = this.tamanho -1; i >= 0; i--) {
+			if(this.elementos[i].equals(elemento)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	@Override

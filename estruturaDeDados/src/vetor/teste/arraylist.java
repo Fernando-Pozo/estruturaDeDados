@@ -9,6 +9,7 @@ public class arraylist {
 		
 		arrayList.add("A");
 		arrayList.add("C");
+		arrayList.add("A");
 		
 		System.out.println(arrayList);
 		
@@ -20,9 +21,7 @@ public class arraylist {
 		
 		System.out.println(existe);
 		
-		int pos = arrayList.indexOf("C");
-		
-		System.out.println(pos);
+		System.out.println(arrayList.lastIndexOf("A"));
 		
 		System.out.println(arrayList.get(2));
 		
